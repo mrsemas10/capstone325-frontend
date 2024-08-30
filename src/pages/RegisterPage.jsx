@@ -14,6 +14,7 @@ const RegisterPage = ({ user }) => {
   });
 
   const navigate = useNavigate();
+  
   //   HANDLE FORM SUBMIT
   const handleSubmit = async (e) => {
     e.preventDefault(); //prevent page reload

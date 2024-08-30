@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { backendUrl } from "../utils";
+
 const LoginPage = ({ handleLogin, user }) => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
@@ -12,11 +13,12 @@ const LoginPage = ({ handleLogin, user }) => {
   });
 
   const navigate = useNavigate();
+
   //   HANDLE FORM SUBMIT
   const handleSubmit = async (e) => {
     e.preventDefault(); //prevent page reload
     setLoading(true);
-    //set error if fields are empty, prevent submiting empty fields
+    //set error if fields are empty, prevent submitting empty fields
     if (email === "")
       return setError((prev) => {
         return { ...prev, emailError: "Email required" };
@@ -56,6 +58,7 @@ const LoginPage = ({ handleLogin, user }) => {
       return { ...prev, passwordError: null };
     });
   }, [password]);
+  
   //REDIRECT TO SEARCH PAGE IF USER IS LOGGED IN
   useEffect(() => {
     if (!user) navigate("/login");

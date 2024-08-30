@@ -26,7 +26,7 @@ const FavoritePage = ({ user }) => {
       .finally(() => setLoading(false));
   };
 
-  // Get list of favorite locations
+  // Delete from list of favorite locations
   const deleteFavorite = async (id) => {
     await axios
       .delete(backendUrl + `/favorite/${id}/${user}`)

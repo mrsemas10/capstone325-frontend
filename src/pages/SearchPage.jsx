@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 const SearchPage = ({ user }) => {
   const [loading, setLoading] = useState(false); //used to create a loading state while searching
   const [city, setCity] = useState(""); // name of city searched
-  const [cityData, setCityData] = useState(null); // name of city searched
-  const [cityError, setCityError] = useState(null); // name of city searched
+  const [cityData, setCityData] = useState(null); // data of city searched
+  const [cityError, setCityError] = useState(null); // search error
   const navigate = useNavigate();
 
-  //   HANDLE SEARCH
+    // HANDLE SEARCH
   const handleSearch = async (e) => {
     const apiKey = "2c8fcaff5cmshb30514913395c4fp10f062jsn47dbd8c865d9";
     setLoading(true);
@@ -51,12 +51,12 @@ const SearchPage = ({ user }) => {
         <div className="search-field-con">
           <input
             type="text"
-            placeholder="Search Cities"
+            placeholder="Search City or Airport Code"
             required
             onChange={(e) => setCity(e.target.value)}
             value={city}
           />
-          <button className="primary-btn" disabled={loading}>
+          <button className="primary-btn" disabled={loading}> 
             {loading ? "Loading..." : "Search"}
           </button>
         </div>

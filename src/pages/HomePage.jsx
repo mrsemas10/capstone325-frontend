@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const HomePage = ({ user }) => {
   return (
     <>
-      <section className="home-explore-section">
+      <section className="home-explore-section section-center">
         <div className="landing-text-con">
           <p className="landing-text">
             <span>Plan Your Perfect Getaway</span>
@@ -41,7 +41,7 @@ const HomePage = ({ user }) => {
         )}
       </section>
       <div className="instruction-con">
-        <section>
+        <section className="section-center">
           <h1 className="instruction-heading-text">How it works</h1>
           <div className="card-container">
             {/*INSTRUCTION CARDS */}
