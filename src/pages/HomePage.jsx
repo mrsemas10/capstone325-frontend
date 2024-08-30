@@ -7,8 +7,8 @@ const HomePage = ({ user }) => {
       <section className="home-explore-section section-center">
         <div className="landing-text-con">
           <p className="landing-text">
-            <span>Plan Your Perfect Getaway</span>
-            <br />
+            <h5>Plan Your Perfect Getaway with <span>CloudNine</span></h5>
+            
             Check real-time weather conditions for your dream destinations, and
             save your favorite spots to make your vacation planning a breeze!
           </p>
