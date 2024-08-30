@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { backendUrl } from "../utils";
+
 const RegisterPage = ({ user }) => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
@@ -49,7 +50,7 @@ const RegisterPage = ({ user }) => {
         }
       })
       .catch((error) => {
-        alert("Email already exists registering");
+        alert("Email already exists");
       })
       .finally(() => setLoading(false));
   };

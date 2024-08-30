@@ -8,7 +8,7 @@ import SearchResult from "../components/SearchResult";
 const FavoritePage = ({ user }) => {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [_, setLoadingCitityData] = useState(false);
+  const [_, setLoadingCityData] = useState(false);
   const [cityData, setCityData] = useState(null);
   const navigate = useNavigate();
 
@@ -26,12 +26,13 @@ const FavoritePage = ({ user }) => {
       .finally(() => setLoading(false));
   };
 
-  // Delete from list of favorite locations
+  // Delete favorite
   const deleteFavorite = async (id) => {
     await axios
-      .delete(backendUrl + `/favorite/${id}/${user}`)
+      .delete(backendUrl + `/favorite/${id}`)
       .then((res) => {
         alert(res.data.message);
+        setCityData(null);
         getFavorites();
       })
       .catch((error) => {
@@ -43,7 +44,7 @@ const FavoritePage = ({ user }) => {
   //  view details of favorite
   const viewfavorite = async (location) => {
     const apiKey = "2c8fcaff5cmshb30514913395c4fp10f062jsn47dbd8c865d9";
-    setLoadingCitityData(true);
+    setLoadingCityData(true);
     axios
       .get(`https://weatherapi-com.p.rapidapi.com/current.json?q=${location}`, {
         headers: {
@@ -58,7 +59,7 @@ const FavoritePage = ({ user }) => {
         setCityData(null);
       })
       .finally(() => {
-        setLoadingCitityData(false);
+        setLoadingCityData(false);
       });
   };
 
