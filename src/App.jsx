@@ -8,30 +8,33 @@ import SearchPage from "./pages/SearchPage";
 import FavoritePage from "./pages/FavoritePage";
 
 const App = () => {
-    const [user, setUser] = useState(localStorage.getItem("user") ?? null);
-    const handleLogout = () => {
-      localStorage.removeItem("user");
-      setUser(null);
-    };
-    const handleLogin = (email) => {
-      localStorage.setItem("user", email);
-      setUser(email);
-    };
-  
-    return (
-      <>
-        <Navigation handleLogout={handleLogout} user={user} />
-        <main>
-          <Routes>
-            <Route path="/" />
-            <Route path="/login"/>
-            <Route path="/register" />
-            <Route path="/search" />
-            <Route path="/favorite" />
-          </Routes>
-        </main>
-      </>
-    );
+  const [user, setUser] = useState(localStorage.getItem("user") ?? null);
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
   };
+  const handleLogin = (email) => {
+    localStorage.setItem("user", email);
+    setUser(email);
+  };
+
+  return (
+    <>
+      <Navigation handleLogout={handleLogout} user={user} />
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage user={user} />} />
+          <Route
+            path="/login"
+            element={<LoginPage handleLogin={handleLogin} user={user} />}
+          />
+          <Route path="/register" element={<RegisterPage user={user} />} />
+          <Route path="/search" element={<SearchPage user={user} />} />
+          <Route path="/favorite" element={<FavoritePage user={user} />} />
+        </Routes>
+      </main>
+    </>
+  );
+};
 
 export default App;

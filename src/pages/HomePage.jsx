@@ -1,6 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const instructionsData = [
+  {
+    heading: "Search for a Location",
+    content:
+      "Start by entering the name of your vacation destination in the search bar to get up-to-date weather conditions.",
+  },
+  {
+    heading: "View Weather Details",
+    content:
+      "Check detailed weather information, including temperature, humidity, wind speed, and a forecast for the upcoming days.",
+  },
+  {
+    heading: "Save Your Favorite Locations",
+    content:
+      " Found a place you like? Save it to your favorites by clicking the star icon, so you can easily check the weather anytime.",
+  },
+  {
+    heading: "Manage Your Favorites",
+    content:
+      "  Access your saved locations from the favorites section, where you can remove, view,  or organize your preferred destinations.",
+  },
+];
 
 const HomePage = ({ user }) => {
   return (
@@ -60,4 +82,3 @@ const HomePage = ({ user }) => {
 };
 
 export default HomePage;
-

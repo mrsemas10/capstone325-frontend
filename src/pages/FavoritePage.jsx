@@ -26,13 +26,12 @@ const FavoritePage = ({ user }) => {
       .finally(() => setLoading(false));
   };
 
-  // delete favorite
+  // Get list of favorite locations
   const deleteFavorite = async (id) => {
     await axios
-      .delete(backendUrl + `/favorite/${id}`)
+      .delete(backendUrl + `/favorite/${id}/${user}`)
       .then((res) => {
         alert(res.data.message);
-        setCityData(null)
         getFavorites();
       })
       .catch((error) => {

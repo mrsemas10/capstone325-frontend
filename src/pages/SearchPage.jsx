@@ -4,13 +4,13 @@ import SearchResult from "../components/SearchResult";
 import { useNavigate } from "react-router-dom";
 
 const SearchPage = ({ user }) => {
-  const [loading, setLoading] = useState(false); 
-  const [city, setCity] = useState(""); 
-  const [cityData, setCityData] = useState(null); 
-  const [cityError, setCityError] = useState(null); 
+  const [loading, setLoading] = useState(false); //used to create a loading state while searching
+  const [city, setCity] = useState(""); // name of city searched
+  const [cityData, setCityData] = useState(null); // name of city searched
+  const [cityError, setCityError] = useState(null); // name of city searched
   const navigate = useNavigate();
 
- 
+  //   HANDLE SEARCH
   const handleSearch = async (e) => {
     const apiKey = "2c8fcaff5cmshb30514913395c4fp10f062jsn47dbd8c865d9";
     setLoading(true);
