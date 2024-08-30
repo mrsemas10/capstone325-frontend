@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import {
-  Cloud,
   Cloudy,
   MapPin,
   Star,
-  Sun,
   Thermometer,
-  Waves,
-  Wind,
 } from "lucide-react";
 import WeatherDetailsCard from "./WeatherDetailsCard";
 import axios from "axios";
 import { backendUrl } from "../utils";
-const dayData = [3, 7, 10];
+
+// const dayData = [3, 7, 10];
 const SearchResult = ({ data, displayFavBtn, user }) => {
   const [loading, setLoading] = useState(false);
-  const [day, setDay] = useState();
+  // const [day, setDay] = useState();
   const { location, current } = data;
 
   const handleAddToFavorite = async () => {
@@ -40,7 +37,6 @@ const SearchResult = ({ data, displayFavBtn, user }) => {
     const apiKey = "2c8fcaff5cmshb30514913395c4fp10f062jsn47dbd8c865d9";
     setLoading(true);
     axios
-      //   .get(`https://weatherapi-com.p.rapidapi.com/current.json?q=${city}`, {
       .get(
         `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${location.name}&days=${day}'`,
         {
@@ -80,20 +76,21 @@ const SearchResult = ({ data, displayFavBtn, user }) => {
         <h1 className="city-details-heading">City details</h1>
         <div>
           <div>
-            <MapPin size={30} />
+            <MapPin size={25} />
             <h1>{location.name}</h1>
             <p className="location-detail">{location.region}</p>
             <p className="location-detail">{location.country}</p>
             <p className="location-detail">Local time: {location.localtime}</p>
-            <p>Last updated: {current.last_updated}</p>
           </div>
           {displayFavBtn && (
             <button
               className="icon-btn"
               onClick={handleAddToFavorite}
+              // onClick={() => {click("yellow")}}
               disabled={loading}
+              handleAddToFavorite
             >
-              <Star size={40} color="blue" fill="white" />
+              <Star size={50} color="blue" fill="white" />
             </button>
           )}
         </div>
@@ -110,10 +107,10 @@ const SearchResult = ({ data, displayFavBtn, user }) => {
           />
           <WeatherDetailsCard
             heading="Temperature"
-            valueOne={current.temp_c}
-            unitOne="&deg;C"
-            valueTwo={current.temp_f}
-            unitTwo="&deg;F"
+            valueOne={current.temp_f}
+            unitOne="&deg;F"
+            valueTwo={current.temp_c}
+            unitTwo="&deg;C"
             icon={<Thermometer size={50} />}
           />
           <WeatherDetailsCard

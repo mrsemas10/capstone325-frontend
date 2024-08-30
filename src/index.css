@@ -113,7 +113,6 @@ input:focus {
   .section-center {
     margin: 0 auto;
   }
-
 }
 
 /* MAIN */
@@ -247,7 +246,6 @@ nav {
 }
 
 /* REGISTER PAGE */
-
 .auth-form-container {
   min-height: 90dvh;
   display: flex;
@@ -303,11 +301,9 @@ nav {
 }
 
 /* SEARCH PAGE */
-
 .search-form {
   border-bottom: solid 2px #2462ea;
   padding-bottom: 20px;
-
 }
 
 .search-heading {
