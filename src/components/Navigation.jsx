@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Navigation = ({ handleLogout, user }) => {
+const Naviagtion = ({ handleLogout, user }) => {
   return (
     <nav>
       <div className="nav-center">
@@ -39,4 +39,4 @@ const Navigation = ({ handleLogout, user }) => {
   );
 };
 
-export default Navigation;
+export default Naviagtion;
