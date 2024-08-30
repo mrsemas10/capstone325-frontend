@@ -37,7 +37,7 @@ const LoginPage = ({ handleLogin, user }) => {
         if (res.status === 200) {
           alert("Login successfully");
           handleLogin(res.data.user.email);
-          return navigate("/search");
+          return navigate("/");
         }
       })
       .catch((error) => {

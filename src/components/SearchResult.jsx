@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  Cloudy,
-  MapPin,
-  Star,
-  Thermometer,
-} from "lucide-react";
+import {Cloudy, MapPin, Star, Thermometer} from "lucide-react";
 import WeatherDetailsCard from "./WeatherDetailsCard";
 import axios from "axios";
 import { backendUrl } from "../utils";
@@ -33,34 +28,34 @@ const SearchResult = ({ data, displayFavBtn, user }) => {
       .finally(() => setLoading(false));
   };
 
-  const handleSearch = async (day) => {
-    const apiKey = "2c8fcaff5cmshb30514913395c4fp10f062jsn47dbd8c865d9";
-    setLoading(true);
-    axios
-      .get(
-        `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${location.name}&days=${day}'`,
-        {
-          headers: {
-            "x-rapidapi-key": apiKey,
-            "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
-          },
-        }
-      )
-      .then((res) => {
-        // setDay(day);
-        // setCityData(res.data);
-        console.log(res.data);
-      })
-      .catch((error) => {
-        if (error.response.data.error.code === 1006) {
-          setCityError(error.response.data.error.message);
-        }
-        setCityData(null);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
+  // const handleSearch = async (day) => {
+  //   const apiKey = "2c8fcaff5cmshb30514913395c4fp10f062jsn47dbd8c865d9";
+  //   setLoading(true);
+  //   axios
+  //     .get(
+  //       `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${location.name}&days=${day}'`,
+  //       {
+  //         headers: {
+  //           "x-rapidapi-key": apiKey,
+  //           "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
+  //         },
+  //       }
+  //     )
+  //     .then((res) => {
+  //       // setDay(day);
+  //       // setCityData(res.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((error) => {
+  //       if (error.response.data.error.code === 1006) {
+  //         setCityError(error.response.data.error.message);
+  //       }
+  //       setCityData(null);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // };
 
   return (
     <section className="section-center">
@@ -95,7 +90,6 @@ const SearchResult = ({ data, displayFavBtn, user }) => {
           )}
         </div>
       </div>
-
       <div className="weather-details-con">
         <h1 className="weather-details-heading">Weather details</h1>
         <div className="weather-details-card-con">

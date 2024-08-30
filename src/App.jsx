@@ -24,10 +24,7 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<HomePage user={user} />} />
-          <Route
-            path="/login"
-            element={<LoginPage handleLogin={handleLogin} user={user} />}
-          />
+          <Route path="/login" element={<LoginPage handleLogin={handleLogin} user={user} />} />
           <Route path="/register" element={<RegisterPage user={user} />} />
           <Route path="/search" element={<SearchPage user={user} />} />
           <Route path="/favorite" element={<FavoritePage user={user} />} />
