@@ -9,7 +9,7 @@ const SearchPage = ({ user }) => {
   const [cityData, setCityData] = useState(null); // data of city searched
   const [cityError, setCityError] = useState(null); // search error
   const navigate = useNavigate();
-
+ 
     // HANDLE SEARCH
   const handleSearch = async (e) => {
     const apiKey = "2c8fcaff5cmshb30514913395c4fp10f062jsn47dbd8c865d9";
